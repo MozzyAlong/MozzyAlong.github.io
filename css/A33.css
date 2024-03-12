@@ -8,25 +8,31 @@
 
 * {
     box-sizing: border-box;
-    font-size: 10px;
+    @font-face {
+      font-family: sans-serif;
+      src: url();
+    }
   }
   
   body {
     margin: 0 auto;
     min-width: 1000px;
     max-width: 1400px;
+    line-height: 2;
+    font-size: 15px;
   }
   
   /* Layout */
   
   section {
     float: left;
-    width: 50%;
+    width: 40%;
+    text-indent: 20px;
   }
   
   aside {
     float: left;
-    width: 30%;
+    width: 20%;
   }
   
   nav {
@@ -40,6 +46,7 @@
   
   header, section, aside, nav, footer {
     padding: 20px;
+    font-size: 3;
   }
   
   /* header and footer */
@@ -47,6 +54,35 @@
   header, footer {
     border-top: 5px solid #a66;
     border-bottom: 5px solid #a66;
+    font-size: 10px;
+    font-family: sans-serif;
+    text-align: center;
   }
   
   /* WRITE YOUR CODE BELOW HERE */
+
+  a:hover {
+    color: greenyellow;
+    text-decoration-line: none;
+  }
+
+  a:focus {
+    color: red;
+    text-decoration-line: none;
+  }
+
+  a:visited {
+    color: blueviolet;
+  }
+
+  h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  ul {
+    list-style-type:square;
+  }
+
+  ol {
+    list-style: lower-alpha;
+  }
