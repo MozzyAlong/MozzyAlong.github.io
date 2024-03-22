@@ -1,3 +1,8 @@
+//	Name: Emidio Guidotti
+//	File: A43
+//	Date: 22 March 2024
+//	Ball Game Script
+
 // setup canvas
 
 const canvas = document.querySelector("canvas");

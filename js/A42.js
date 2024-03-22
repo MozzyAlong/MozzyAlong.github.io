@@ -1,3 +1,8 @@
+//	Name: Emidio Guidotti
+//	File: A42
+//	Date: 22 March 2024
+//	Image Gallery script
+
 const displayedImage = document.querySelector('.displayed-img');
 const thumbBar = document.querySelector('.thumb-bar');
 

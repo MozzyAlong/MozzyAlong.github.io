@@ -1,3 +1,8 @@
+//	Name: Emidio Guidotti
+//	File: A44
+//	Date: 22 March 2024
+//	Better Ball Game Scipt
+
 // set up canvas
 
 const canvas = document.querySelector("canvas");
