@@ -22,6 +22,10 @@ body {
   height: 480px;
 }
 
+.full-img img {
+  position: absolute;
+}
+
 .overlay {
   position: absolute;
   top: 0;
