@@ -10,7 +10,9 @@ const ctx = canvas.getContext("2d");
 
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
+// get the score board
 const para = document.querySelector('p');
+// initialize the score
 let score = 0;
 
 // function to generate random number
@@ -25,6 +27,7 @@ function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
 
+// define the main object class of these avatars
 class Shape {
     constructor(x, y, velX, velY) {
         this.x = x;
@@ -34,7 +37,9 @@ class Shape {
     }
 }
 
+// define the enemy
 class Ball extends Shape {
+  // construct with randomized values
   constructor(x, y, velX, velY, color, size) {
     super(x, y, velX, velY);
     this.color = color;
@@ -42,6 +47,7 @@ class Ball extends Shape {
     this.exists = true;
   }
 
+  // display a ball
   draw() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -49,6 +55,7 @@ class Ball extends Shape {
     ctx.fill();
   }
 
+  // program the balls movement
   update() {
     if (this.x + this.size >= width) {
       this.velX = -Math.abs(this.velX);
@@ -85,11 +92,14 @@ class Ball extends Shape {
   }
 }
 
+// define the player ball
 class EvilCircle extends Shape {
+    // constructor with set elements
     constructor(x, y) {
         super(x, y, 20, 20)
         this.color = 'white';
         this.size = 10;
+        // define palyer actions
         window.addEventListener("keydown", (e) => {
           switch (e.key) {
             case "a":
@@ -108,7 +118,7 @@ class EvilCircle extends Shape {
           });
     }
 
-
+    // function to display the player
     draw() {
         ctx.beginPath();
         ctx.strokeStyle = this.color;
@@ -117,6 +127,7 @@ class EvilCircle extends Shape {
         ctx.stroke();
     }
 
+    // stop player from leaving the game
     checkBounds() {
         if (this.x + this.size >= width) {
           this.x -= this.size;
@@ -135,6 +146,7 @@ class EvilCircle extends Shape {
         }
       }
 
+      // deactivate ball that has been "tagged"
       collisionDetect() {
          for (const ball of balls) {
             if (ball.exists) {
@@ -151,8 +163,10 @@ class EvilCircle extends Shape {
       }
 }
 
+// instantiate the ball list
 const balls = [];
 
+// instantiate the players avatar
 const connivingCircle = new EvilCircle (50, 50);
 
 // initialize all balls
@@ -176,8 +190,9 @@ while (balls.length < 25) {
 function loop() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
   ctx.fillRect(0, 0, width, height);
-  para.textContent = `Score: ${score}`; // add and update the score
+  para.textContent = `Score: ${score}`; // update the score
 
+  // remove any ball that has been eaten
   for (const ball of balls) {
     if (ball.exists) {
         ball.draw();
@@ -189,6 +204,7 @@ function loop() {
   connivingCircle.checkBounds();
   connivingCircle.collisionDetect();
   requestAnimationFrame(loop);
+  // win condition
   if (!score) {
     para.textContent = "You Win!";
   }
