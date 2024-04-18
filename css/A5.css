@@ -202,7 +202,7 @@ audio {
   margin-bottom: 3rem;
 }
 
-.comment-form .flex-pair {
+.comment-form .flex-pair .name .comment {
   display: flex;
   padding: 0 3rem 1rem;
 }
