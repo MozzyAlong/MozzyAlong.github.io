@@ -21,6 +21,7 @@ showHideBtn.onclick = function() {
   }
 };
 
+// Added function to enable key press to replace clicking for non mouse users
   document.onkeydown = (e) => {
     // The Enter/Return key
     if (e.key === "Enter") {
